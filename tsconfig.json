@@ -8,6 +8,6 @@
     "module": "AMD"
   },
   "include": [
-    "main.ts"
+    "scripts/main.ts"
   ]
 }
