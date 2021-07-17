@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "alwaysStrict": true,
+    "target": "ES2016",
+    "moduleResolution": "node",
+    "outFile": "index.js",
+    "module": "AMD"
+  },
+  "include": [
+    "main.ts"
+  ]
+}
