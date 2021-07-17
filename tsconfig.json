@@ -2,10 +2,18 @@
   "compilerOptions": {
     "strict": true,
     "alwaysStrict": true,
-    "target": "ES2016",
+    "removeComments": true,
+    "sourceMap": true,
+    "declaration": true,
+    "noImplicitAny": true,
     "moduleResolution": "node",
-    "outFile": "index.js",
-    "module": "AMD"
+    "outDir": "dist/",
+    "module": "ES6",
+    "target": "ES5",
+    "lib": [
+      "ES2015",
+      "DOM"
+    ],
   },
   "include": [
     "scripts/main.ts"

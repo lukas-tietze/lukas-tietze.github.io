@@ -1,3 +1,3 @@
-import { fromEvent } from 'rxjs';
+import { timer } from 'rxjs';
 
-fromEvent(document, 'load').subscribe(() => console.log('loaded!'));
+timer(1000).subscribe(() => console.log('hi'));
