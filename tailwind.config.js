@@ -1,9 +1,6 @@
-export default {
-  content: ['./pages/**/*.html'],
+module.exports = {
+  content: ['./src/pages/**/*.html'],
   theme: {
-    extend: {},
-  },
-  variants: {
     extend: {},
   },
   plugins: [],

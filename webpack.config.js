@@ -1,6 +1,6 @@
-import path from 'path';
-import HtmlWebpackPlugin from 'html-webpack-plugin';
-import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 /**
  * @param {string[]} pages
@@ -10,7 +10,7 @@ function makeEntries(pages) {
   const res = {};
 
   for (const page of pages) {
-    res[page] = [`./src/pages/${page}.scss`, `./src/pages/${page}.ts`];
+    res[page] = [`./src/pages/${page}.css`, `./src/pages/${page}.ts`];
   }
 
   return res;
@@ -33,7 +33,7 @@ function makePlugins(pages) {
 
 const pages = ['index'];
 
-export default {
+module.exports = {
   entry: makeEntries(pages),
   output: {
     filename: '[name].[contenthash].bundle.js',
@@ -57,24 +57,18 @@ export default {
         exclude: /node_modules/,
       },
       {
-        // "normale" scss-Stylesheets
         test: /\.scss$/,
         use: [
           MiniCssExtractPlugin.loader,
-          {
-            loader: 'css-loader',
-            options: {
-              sourceMap: false,
-            },
-          },
+          { loader: 'css-loader', options: { importLoaders: 1 } },
           { loader: 'postcss-loader' },
-          {
-            loader: 'sass-loader',
-            options: {
-              sassOptions: {},
-            },
-          },
+          { loader: 'sass-loader' },
         ],
+        exclude: [/node_modules/],
+      },
+      {
+        test: /\.css$/,
+        use: [MiniCssExtractPlugin.loader, { loader: 'css-loader', options: { importLoaders: 1 } }, { loader: 'postcss-loader' }],
         exclude: [/node_modules/],
       },
     ],
