@@ -10,7 +10,7 @@ function makeEntries(pages) {
   const res = {};
 
   for (const page of pages) {
-    res[page] = [`./src/pages/${page}.css`, `./src/pages/${page}.ts`];
+    res[page] = [`./src/pages/${page}.scss`, `./src/pages/${page}.ts`];
   }
 
   return res;
