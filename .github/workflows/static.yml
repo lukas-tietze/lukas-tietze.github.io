@@ -30,6 +30,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+      - name: Install packages
+        run: npm install
+      - name: WebPack build
+        run: npx webpack
       - name: Setup Pages
         uses: actions/configure-pages@v2
       - name: Upload artifact

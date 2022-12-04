@@ -1,0 +1,1 @@
+alert('Skript läuft!')
