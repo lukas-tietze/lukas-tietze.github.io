@@ -1,11 +1,40 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+import path from 'path';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
-module.exports = {
-  entry: {
-    index: ['./src/index.ts', './src/index.scss'],
-  },
+/**
+ * @param {string[]} pages
+ * @returns {object}
+ */
+function makeEntries(pages) {
+  const res = {};
+
+  for (const page of pages) {
+    res[page] = [`./src/pages/${page}.scss`, `./src/pages/${page}.ts`];
+  }
+
+  return res;
+}
+
+/**
+ * @param {string[]} pages
+ * @returns {HtmlWebpackPlugin[]}
+ */
+function makePlugins(pages) {
+  return pages.map(
+    (p) =>
+      new HtmlWebpackPlugin({
+        template: `./src/pages/${p}.html`,
+        filename: `${p}.html`,
+        chunks: [p],
+      })
+  );
+}
+
+const pages = ['index'];
+
+export default {
+  entry: makeEntries(pages),
   output: {
     filename: '[name].[contenthash].bundle.js',
     path: './dist',
@@ -45,11 +74,7 @@ module.exports = {
     ],
   },
   plugins: [
-    new HtmlWebpackPlugin({
-      template: 'src/index.html',
-      filename: 'index.html',
-      chunks: ['index'],
-    }),
+    ...makePlugins(pages),
     new MiniCssExtractPlugin({
       filename: '[name].[contenthash].bundle.css',
     }),
@@ -59,6 +84,6 @@ module.exports = {
   },
   output: {
     filename: 'bundle.js',
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve('./dist'),
   },
 };
