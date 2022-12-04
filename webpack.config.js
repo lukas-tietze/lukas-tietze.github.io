@@ -41,13 +41,13 @@ export default {
     clean: true,
   },
   mode: 'production',
+  plugins: [...makePlugins(pages), new MiniCssExtractPlugin({ filename: '[name].[contenthash].bundle.css' })],
   module: {
     rules: [
       {
         // html-Dateien (außer bei Komponenten).
         test: /\.html$/,
         loader: 'html-loader',
-        options: {},
         exclude: [/node_modules/],
       },
       {
@@ -67,23 +67,24 @@ export default {
               sourceMap: false,
             },
           },
-          'sass-loader',
+          { loader: 'postcss-loader' },
+          {
+            loader: 'sass-loader',
+            options: {
+              sassOptions: {},
+            },
+          },
         ],
         exclude: [/node_modules/],
       },
     ],
   },
-  plugins: [
-    ...makePlugins(pages),
-    new MiniCssExtractPlugin({
-      filename: '[name].[contenthash].bundle.css',
-    }),
-  ],
   resolve: {
-    extensions: ['.js', '.ts'],
+    extensions: ['.tsx', '.ts', '.js', '.png', 'scss', 'css'],
   },
   output: {
-    filename: 'bundle.js',
+    filename: '[name].[contenthash].bundle.js',
     path: path.resolve('./dist'),
+    clean: true,
   },
 };
