@@ -1,6 +1,8 @@
 const path = require('path');
+const glob = require('glob-all');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const { PurgeCSSPlugin } = require('purgecss-webpack-plugin');
 
 /**
  * @param {string[]} pages
@@ -27,6 +29,8 @@ function makePlugins(pages) {
         template: `./src/pages/${p}.html`,
         filename: `${p}.html`,
         chunks: [p],
+        scriptLoading: 'defer',
+        // base: '/',
       })
   );
 }
@@ -35,23 +39,22 @@ const pages = ['index'];
 
 module.exports = {
   entry: makeEntries(pages),
-  output: {
-    filename: '[name].[contenthash].bundle.js',
-    path: './dist',
-    clean: true,
-  },
   mode: 'production',
-  plugins: [...makePlugins(pages), new MiniCssExtractPlugin({ filename: '[name].[contenthash].bundle.css' })],
+  plugins: [
+    ...makePlugins(pages),
+    new MiniCssExtractPlugin({ filename: '[name].[contenthash].bundle.css' }),
+    new PurgeCSSPlugin({
+      paths: glob.sync(['./src/**/*.html'], { nodir: true }),
+    }),
+  ],
   module: {
     rules: [
       {
-        // html-Dateien (außer bei Komponenten).
         test: /\.html$/,
         loader: 'html-loader',
         exclude: [/node_modules/],
       },
       {
-        // TypeScript-Dateien.
         test: /\.tsx?$/,
         loader: 'ts-loader',
         exclude: /node_modules/,
