@@ -1,5 +1,7 @@
-@use '../styles/config';
 @use '../styles/layout';
+@import '../styles/config';
+@import '../styles/font-awesome/fontawesome.scss';
+@import '../styles/font-awesome/solid.scss';
 
 @tailwind base;
 @tailwind components;
@@ -7,4 +9,32 @@
 
 body {
   margin: 0;
+}
+
+nav {
+  .menu-overlay {
+    position: fixed;
+  }
+
+  #nav-toggle {
+    & + label > .fa-bars {
+      display: block;
+    }
+
+    & + label > .fa-close,
+    & + label + .menu-overlay {
+      display: none;
+    }
+  }
+
+  #nav-toggle:checked {
+    & + label > .fa-bars {
+      display: none;
+    }
+
+    & + label > .fa-close,
+    & + label + .menu-overlay {
+      display: flex;
+    }
+  }
 }

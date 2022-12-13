@@ -1,6 +1,16 @@
+const tailwindcss = require('tailwindcss');
+const cssnano = require('cssnano');
+const purgecss = require('@fullhuman/postcss-purgecss');
+const glob = require('glob-all');
+const autoprefixer = require('autoprefixer');
+
 module.exports = {
-  plugins: {
-    tailwindcss: {},
-    autoprefixer: {},
-  }
-}
+  plugins: [
+    tailwindcss(),
+    autoprefixer(),
+    purgecss({
+      content: ['./src/**/*.html'],
+    }),
+    cssnano({ preset: [require('cssnano-preset-default'), { discardUnused: true }] }),
+  ],
+};

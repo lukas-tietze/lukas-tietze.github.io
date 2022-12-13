@@ -1,8 +1,6 @@
 const path = require('path');
-const glob = require('glob-all');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const { PurgeCSSPlugin } = require('purgecss-webpack-plugin');
 
 /**
  * @param {string[]} pages
@@ -30,23 +28,25 @@ function makePlugins(pages) {
         filename: `${p}.html`,
         chunks: [p],
         scriptLoading: 'defer',
-        // base: '/',
       })
   );
 }
+
+const inspect = (name) => ({
+  loader: 'inspect-loader',
+  options: {
+    callback(inspect) {
+      console.log(name, '\n', inspect.arguments);
+    },
+  },
+});
 
 const pages = ['index'];
 
 module.exports = {
   entry: makeEntries(pages),
   mode: 'production',
-  plugins: [
-    ...makePlugins(pages),
-    new MiniCssExtractPlugin({ filename: '[name].[contenthash].bundle.css' }),
-    new PurgeCSSPlugin({
-      paths: glob.sync(['./src/**/*.html'], { nodir: true }),
-    }),
-  ],
+  plugins: [...makePlugins(pages), new MiniCssExtractPlugin({ filename: '[name].[contenthash].bundle.css' })],
   module: {
     rules: [
       {
@@ -63,19 +63,15 @@ module.exports = {
         test: /\.scss$/,
         use: [
           MiniCssExtractPlugin.loader,
-          { loader: 'css-loader', options: { importLoaders: 1 } },
+          { loader: 'css-loader', options: { sourceMap: false, importLoaders: 1 } },
           { loader: 'postcss-loader' },
           { loader: 'sass-loader' },
         ],
         exclude: [/node_modules/],
       },
-      {
-        test: /\.css$/,
-        use: [MiniCssExtractPlugin.loader, { loader: 'css-loader', options: { importLoaders: 1 } }, { loader: 'postcss-loader' }],
-        exclude: [/node_modules/],
-      },
     ],
   },
+  devtool: false,
   resolve: {
     extensions: ['.tsx', '.ts', '.js', '.png', 'scss', 'css'],
   },

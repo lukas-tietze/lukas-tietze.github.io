@@ -9,10 +9,10 @@
     "build-prod": "npx webpack --watch --mode=production"
   },
   "dependencies": {
+    "inspect-loader": "^2.0.0",
     "rxjs": "^7.2.0"
   },
   "devDependencies": {
-    "mustache-loader": "^1.4.3",
     "@fullhuman/postcss-purgecss": "^5.0.0",
     "@types/sass": "^1.43.1",
     "@types/tailwindcss": "^3.1.0",
@@ -26,6 +26,7 @@
     "html-loader": "^4.2.0",
     "html-webpack-plugin": "^5.5.0",
     "mini-css-extract-plugin": "^2.4.5",
+    "mustache-loader": "^1.4.3",
     "postcss": "^8.4.19",
     "postcss-loader": "^7.0.2",
     "postcss-preset-env": "^7.8.3",

@@ -3,10 +3,19 @@
 <html>
   <head>
     <meta charset="utf-8" lang="de" />
+
+    <script src="https://kit.fontawesome.com/8154c132b6.js" crossorigin="anonymous"></script>
   </head>
   <body class="m-0 flex flex-col justify-center items-center">
-    <header class="p-10 w-full bg-slate-500">
-      <nav></nav>
+    <header class="p-4 w-full bg-slate-500">
+      <nav>
+        <input type="checkbox" class="hidden" id="nav-toggle" />
+        <label for="nav-toggle">
+          <i class="fa-solid fa-bars font-extrabold text-slate-100"></i>
+          <i class="fa-solid fa-close font-extrabold text-slate-100"></i>
+        </label>
+        <div class="fixed top-12 left-0 right-0 bg-slate-400 menu-overlay">Menü</div>
+      </nav>
     </header>
 
     <main class="w-1/2 max-w-4xl">
