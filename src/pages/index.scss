@@ -37,4 +37,14 @@ nav {
       display: flex;
     }
   }
+
+  .menu-list {
+    > li {
+      padding: 1rem;
+
+      > span {
+        padding-left: 1rem;
+      }
+    }
+  }
 }
