@@ -27,31 +27,34 @@ function makePlugins(pages) {
         template: `./src/pages/${p}.html`,
         filename: `${p}.html`,
         chunks: [p],
+        scriptLoading: 'defer',
       })
   );
 }
+
+const inspect = (name) => ({
+  loader: 'inspect-loader',
+  options: {
+    callback(inspect) {
+      console.log(name, '\n', inspect.arguments);
+    },
+  },
+});
 
 const pages = ['index'];
 
 module.exports = {
   entry: makeEntries(pages),
-  output: {
-    filename: '[name].[contenthash].bundle.js',
-    path: './dist',
-    clean: true,
-  },
   mode: 'production',
   plugins: [...makePlugins(pages), new MiniCssExtractPlugin({ filename: '[name].[contenthash].bundle.css' })],
   module: {
     rules: [
       {
-        // html-Dateien (außer bei Komponenten).
         test: /\.html$/,
         loader: 'html-loader',
         exclude: [/node_modules/],
       },
       {
-        // TypeScript-Dateien.
         test: /\.tsx?$/,
         loader: 'ts-loader',
         exclude: /node_modules/,
@@ -60,19 +63,15 @@ module.exports = {
         test: /\.scss$/,
         use: [
           MiniCssExtractPlugin.loader,
-          { loader: 'css-loader', options: { importLoaders: 1 } },
+          { loader: 'css-loader', options: { sourceMap: false, importLoaders: 1 } },
           { loader: 'postcss-loader' },
           { loader: 'sass-loader' },
         ],
         exclude: [/node_modules/],
       },
-      {
-        test: /\.css$/,
-        use: [MiniCssExtractPlugin.loader, { loader: 'css-loader', options: { importLoaders: 1 } }, { loader: 'postcss-loader' }],
-        exclude: [/node_modules/],
-      },
     ],
   },
+  devtool: false,
   resolve: {
     extensions: ['.tsx', '.ts', '.js', '.png', 'scss', 'css'],
   },
