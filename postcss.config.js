@@ -11,7 +11,7 @@ module.exports = {
     purgecss({
       content: ['./src/**/*.html'],
       safelist: {
-        standard: [/\d+\/\d+/],
+        standard: [/\d+\/\d+/, /hover:/],
       },
     }),
     cssnano({ preset: [require('cssnano-preset-default'), { discardUnused: true }] }),

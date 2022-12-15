@@ -7,4 +7,6 @@ $breakpoints: (
   'xxl': 1400px,
 );
 
-$fa-font-path: "../assets/fonts/";
+$font-dir: '../assets/fonts';
+$fa-font-path: $font-dir + '/font-awesome';
+$rb-font-path: $font-dir + '/roboto';

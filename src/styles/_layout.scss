@@ -1,7 +1,53 @@
-@use './config.scss';
-@use './tailwind.scss';
+@use 'tailwind';
+@use 'font';
+
+@import 'config';
+@import 'font-awesome/fontawesome.scss';
+@import 'font-awesome/solid.scss';
 
 body {
+  margin: 0;
+  min-height: 100vh;
+}
+
+nav {
+  .menu-overlay {
+    position: fixed;
+  }
+
+  #nav-toggle {
+    cursor: pointer;
+
+    & + div > label > i {
+      @extend .fa-bars;
+    }
+
+    & + div + .menu-overlay {
+      display: none;
+    }
+  }
+
+  #nav-toggle:checked {
+    & + div > label > i {
+      @extend .fa-close;
+    }
+
+    & + div + .menu-overlay {
+      display: flex;
+    }
+  }
+
+  .menu-list {
+    .menu-item {
+      cursor: pointer;
+
+      padding: 1rem;
+
+      i + span {
+        padding-left: 1rem;
+      }
+    }
+  }
 }
 
 header {
@@ -9,11 +55,11 @@ header {
   top: 0px;
 }
 
-main 
-{
-
+main {
+  min-width: 500px;
+  width: 50%;
+  max-width: 1000px;
 }
 
 footer {
-
 }

@@ -69,6 +69,10 @@ module.exports = {
         ],
         exclude: [/node_modules/],
       },
+      {
+        test: /\.(png|jpe?g|ttf|woff2)$/,
+        type: 'asset/resource',
+      },
     ],
   },
   devtool: false,

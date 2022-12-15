@@ -4,29 +4,45 @@
   <head>
     <meta charset="utf-8" lang="de" />
     <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, width=device-width, user-scalable=no" />
-
-    <script src="https://kit.fontawesome.com/8154c132b6.js" crossorigin="anonymous"></script>
   </head>
   <body class="m-0 flex flex-col justify-center items-center bg-slate-100">
-    <header class="p-4 w-full bg-slate-500 z-10">
-      <nav>
+    <header class="w-full bg-slate-500 z-10">
+      <nav class="h-12">
         <input type="checkbox" class="hidden" id="nav-toggle" />
-        <label for="nav-toggle">
-          <i class="fa-solid fa-bars font-extrabold text-slate-100"></i>
-          <i class="fa-solid fa-close font-extrabold text-slate-100"></i>
-        </label>
+        <div class="aspect-square h-full w-auto hover:bg-slate-400 cursor-pointer flex">
+          <label for="nav-toggle" class="cursor-pointer w-full h-full flex items-center justify-center">
+            <i class="fa-solid font-extrabold text-xl text-slate-100 cursor-pointer"></i>
+          </label>
+        </div>
         <div class="fixed top-12 left-0 right-0 bg-slate-400 menu-overlay">
-          <ul class="text-slate-100 list-none menu-list">
-            <li><i class="fa-solid fa-house"></i><span>Home</span></li>
-            <li><i class="fa-solid fa-user"></i><span>Über mich</span></li>
-            <li><i class="fa-solid fa-poo"></i><span>Projekte</span></li>
+          <ul class="text-slate-100 list-none menu-list w-full">
+            <li class="hover:bg-slate-500 menu-item">
+              <a>
+                <i class="fa-solid fa-house"></i>
+                <span>Home</span>
+              </a>
+            </li>
+
+            <li class="hover:bg-slate-500 menu-item">
+              <a>
+                <i class="fa-solid fa-user"></i>
+                <span>Über mich</span>
+              </a>
+            </li>
+
+            <li class="hover:bg-slate-500 menu-item">
+              <a>
+                <i class="fa-solid fa-poo"></i>
+                <span>Projekte</span>
+              </a>
+            </li>
           </ul>
         </div>
       </nav>
     </header>
 
-    <main class="flex-1 w-full">
-      <div class="w-1/2 mx-auto py-8">
+    <main class="flex-1 flex flex-col items-center">
+      <div class="p-8">
         <img class="rounded-full" src="../assets/img/Logo.webp" />
       </div>
 
