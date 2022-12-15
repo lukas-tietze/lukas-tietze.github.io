@@ -10,6 +10,9 @@ module.exports = {
     autoprefixer(),
     purgecss({
       content: ['./src/**/*.html'],
+      safelist: {
+        standard: [/\d+\/\d+/],
+      },
     }),
     cssnano({ preset: [require('cssnano-preset-default'), { discardUnused: true }] }),
   ],
