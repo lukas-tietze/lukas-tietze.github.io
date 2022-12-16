@@ -9,7 +9,7 @@ module.exports = {
     tailwindcss(),
     autoprefixer(),
     purgecss({
-      content: ['./src/**/*.html'],
+      content: ['./src/pages/**/*.html', './src/partials/**/*.html'],
       safelist: {
         standard: [/\d+\/\d+/, /hover:/],
       },
