@@ -41,7 +41,7 @@ const inspect = (name) => ({
   },
 });
 
-const pages = ['index', 'about', 'projects', 'why-jesus'];
+const pages = ['index'];//, 'about', 'projects', 'why-jesus'];
 
 module.exports = {
   entry: makeEntries(pages),
@@ -50,14 +50,14 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /src\/partials\/.*\.html$/,
-        use: [{ loader: 'html-loader' }],
+        test: /\.partial\.html$/,
+        type: 'asset/inline',
         exclude: [/node_modules/],
       },
       {
         test: /\.html$/,
         use: [{ loader: 'html-loader' }, { loader: 'html-template-loader' }],
-        exclude: [/node_modules/],
+        exclude: [/node_modules/, /partials/],
       },
       {
         test: /\.tsx?$/,
