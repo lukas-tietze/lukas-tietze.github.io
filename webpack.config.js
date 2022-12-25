@@ -10,7 +10,7 @@ function makeEntries(pages) {
   const res = {};
 
   for (const page of pages) {
-    res[page] = [`./src/pages/${page}.scss`, `./src/pages/${page}.ts`];
+    res[page] = [`./src/pages/${page}/index.scss`, `./src/pages/${page}/index.ts`];
   }
 
   return res;
@@ -24,7 +24,7 @@ function makePlugins(pages) {
   return pages.map(
     (p) =>
       new HtmlWebpackPlugin({
-        template: `./src/pages/${p}.html`,
+        template: `./src/pages/${p}/index.html`,
         filename: `${p}.html`,
         chunks: [p],
         scriptLoading: 'defer',
@@ -41,7 +41,7 @@ const inspect = (name) => ({
   },
 });
 
-const pages = ['index'];
+const pages = ['index']; //, 'about', 'projects', 'why-jesus'];
 
 module.exports = {
   entry: makeEntries(pages),
@@ -50,9 +50,14 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.html$/,
-        loader: 'html-loader',
+        test: /\.partial\.html$/,
+        type: 'asset/inline',
         exclude: [/node_modules/],
+      },
+      {
+        test: /\.html$/,
+        use: [{ loader: 'html-loader' }, { loader: 'html-template-loader' }],
+        exclude: [/node_modules/, /partials/],
       },
       {
         test: /\.tsx?$/,
@@ -69,7 +74,14 @@ module.exports = {
         ],
         exclude: [/node_modules/],
       },
+      {
+        test: /\.(png|jpe?g|ttf|woff2)$/,
+        type: 'asset/resource',
+      },
     ],
+  },
+  resolveLoader: {
+    modules: ['node_modules', path.resolve('./webpack/loaders')],
   },
   devtool: false,
   resolve: {

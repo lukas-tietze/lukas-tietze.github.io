@@ -9,9 +9,9 @@ module.exports = {
     tailwindcss(),
     autoprefixer(),
     purgecss({
-      content: ['./src/**/*.html'],
+      content: ['./src/pages/**/*.html', './src/partials/**/*.html'],
       safelist: {
-        standard: [/\d+\/\d+/],
+        standard: [/\d+\/\d+/, /hover:/],
       },
     }),
     cssnano({ preset: [require('cssnano-preset-default'), { discardUnused: true }] }),

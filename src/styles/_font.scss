@@ -1,0 +1,10 @@
+@use 'config';
+
+@font-face {
+  font-family: 'Roboto';
+  src: url(config.$rb-font-path + '/Roboto-Black.ttf') format('truetype');
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+}

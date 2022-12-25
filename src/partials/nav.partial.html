@@ -1,0 +1,39 @@
+<nav class="h-12">
+  <input type="checkbox" class="hidden" id="nav-toggle" />
+  <div class="aspect-square h-full w-auto hover:bg-slate-400 cursor-pointer flex">
+    <label for="nav-toggle" class="cursor-pointer w-full h-full flex items-center justify-center">
+      <i class="fa-solid font-extrabold text-xl text-slate-100 cursor-pointer"></i>
+    </label>
+  </div>
+  <div class="fixed top-12 left-0 right-0 bg-slate-400 menu-overlay">
+    <ul class="text-slate-100 list-none menu-list w-full">
+      <li class="hover:bg-slate-500 menu-item">
+        <a href="/">
+          <i class="fa-solid fa-house"></i>
+          <span>Home</span>
+        </a>
+      </li>
+
+      <li class="hover:bg-slate-500 menu-item">
+        <a href="/about">
+          <i class="fa-solid fa-user"></i>
+          <span>Über mich</span>
+        </a>
+      </li>
+
+      <li class="hover:bg-slate-500 menu-item">
+        <a href="/why-jesus">
+          <i class="fa-solid fa-cross"></i>
+          <span>Über das Christ-Sein</span>
+        </a>
+      </li>
+
+      <li class="hover:bg-slate-500 menu-item">
+        <a href="/projects">
+          <i class="fa-solid fa-poo"></i>
+          <span>Projekte</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
