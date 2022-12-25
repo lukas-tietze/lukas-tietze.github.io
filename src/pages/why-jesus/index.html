@@ -1,18 +1,92 @@
 <!DOCTYPE html>
 
 <html>
-  {{ head }}
+  {{> head }}
   <body class="bg-slate-100">
-    <header class="w-full bg-slate-500 z-10">{{ nav }}</header>
+    <header class="w-full bg-slate-500 z-10">{{> nav }}</header>
 
     <main class="flex-1 flex flex-col items-center">
       <article>
         <section>
           <h1 class="text-lg font-bold text-center">Warum Jesus?</h1>
+          <!-- 
+          <p>
+            Warum sollte man in der heutigen Zeit Christ sein? Ist das nicht alles veraltet? Oder nur eine Legende? 
+            Ich glaube, das 
+          </p> -->
+
+          <ul>
+            <li>
+              <i class="fa-solid fa-heart text-red-400"></i>
+              <a href="#heart" class="pl-2">Gott <i>liebt</i> mich.</a>
+            </li>
+
+            <li>
+              <i class="fa-solid fa-arrows-split-up-and-left fa-flip-horizontal text-stone-400"></i>
+              <a href="#split" class="pl-2">Ich habe mich von Gott <i>entfernt</i>.</a>
+            </li>
+
+            <li>
+              <i class="fa-solid fa-cross text-yellow-400"></i>
+              <a href="#cross" class="pl-2">Jesus <i>schenkt</i> mir Versöhnung und Gemeinschaft mit Gott.</a>
+            </li>
+
+            <li>
+              <i class="fa-solid fa-circle-question text-emerald-500"></i>
+              <a href="#question" class="pl-2">Die einzige Frage an uns ist, ob wir dieses Geschenk <i>annehmen</i>.</a>
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h2 id="heart" class="text-xl text-center">
+            <i class="fa-solid fa-heart text-red-400"></i>
+            <span>Gott lieb mich</span>
+          </h2>
+          <p class="mb-2">
+            &hellip; und nicht nur mich. Auch dich. Und auch jeden anderen Menschen. Das ist eine der Grundaussagen der Bibel von der ersten
+            bis zur letzten Seite. Die Bibel sagt auch, dass wir dazu gemacht sind, Gott, unsere Mitmenschen und uns selbst zu lieben.
+          </p>
+          <p>
+            Aber Gott hat uns zuerst geliebt. Und Gottes Liebe ist nicht von unseren Taten und schon gar nicht von unserem Aussehen, unserem
+            Besitz oder unserer Bildung abhängig.
+          </p>
+          <p class="font-bold">Gott liebt uns bedingungslos.</p>
+        </section>
+
+        <section>
+          <h2 id="heart" class="text-xl text-center">
+            <i class="fa-solid fa-arrows-split-up-and-left fa-flip-horizontal text-stone-400"></i>
+            <span>Ich habe mich von Gott entfernt </span>
+          </h2>
+          <p>
+            Weil Gott uns so sehr liebt, wünscht er auch, dass wir ein gutes und erfülltes Leben haben. Aber weil Gott uns als geliebtes
+            Gegenüber und nicht als Sklaven oder Roboter sieht gab er uns auch die Möglichkeit, uns gegen ihn zu entscheiden.
+          </p>
+          <p>
+            Oft tun wir Dinge, die uns und unsere Mitmenschen verletzen. Und oft nicht nur aus Versehen, sondern mit voller Absicht. Die
+            Bibel nennt das Sünde, am Ziel Gottes vorbeigelebt, Erfüllung und inneren Frieden verloren, Trennung von Gott.
+          </p>
+          <p class="font-bold">Keiner ist perfekt und jeder lebt </p>
+        </section>
+
+        <section>
+          <h2 id="heart" class="text-xl text-center">
+            <i class="fa-solid fa-arrows-split-up-and-left fa-flip-horizontal text-yellow-400"></i>
+            <span>Jesus schenkt Versöhnung</span>
+          </h2>
+          <p></p>
+        </section>
+
+        <section>
+          <h2 id="heart" class="text-xl text-center">
+            <i class="fa-solid fa-arrows-split-up-and-left fa-flip-horizontal text-emerald-500"></i>
+            <span>Es ist meine freie Entscheidung</span>
+          </h2>
+          <p></p>
         </section>
       </article>
     </main>
 
-    {{ footer }}
+    {{> footer }}
   </body>
 </html>

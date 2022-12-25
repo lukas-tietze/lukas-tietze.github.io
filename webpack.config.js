@@ -41,7 +41,7 @@ const inspect = (name) => ({
   },
 });
 
-const pages = ['index']; //, 'about', 'projects', 'why-jesus'];
+const pages = ['index', 'about', 'projects', 'why-jesus'];
 
 module.exports = {
   entry: makeEntries(pages),
