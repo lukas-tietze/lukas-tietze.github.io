@@ -55,9 +55,11 @@ nav {
   }
 }
 
-header {
-  position: sticky;
-  top: 0px;
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: url(config.$rb-font-path + '/Roboto-Medium.ttf') format('truetype');
 }
 
 main {
