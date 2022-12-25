@@ -1,9 +1,9 @@
 @use 'tailwind';
-@use 'font';
+@use 'fonts/roboto/roboto.scss';
 
 @import 'config';
-@import 'font-awesome/fontawesome.scss';
-@import 'font-awesome/solid.scss';
+@import 'fonts/font-awesome/fontawesome.scss';
+@import 'fonts/font-awesome/solid.scss';
 
 body {
   margin: 0;
@@ -53,13 +53,6 @@ nav {
       }
     }
   }
-}
-
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 400;
-  src: url(config.$rb-font-path + '/Roboto-Medium.ttf') format('truetype');
 }
 
 main {
