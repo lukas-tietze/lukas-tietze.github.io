@@ -75,8 +75,18 @@ module.exports = {
         exclude: [/node_modules/],
       },
       {
-        test: /\.(png|jpe?g|ttf|woff2)$/,
+        test: /\.(png|jpg|jpeg|svg)/,
         type: 'asset/resource',
+        generator: {
+          filename: 'assets/img/[name][ext]',
+        },
+      },
+      {
+        test: /\.(woff|woff2|eot|ttf|otf)$/i,
+        type: 'asset/resource',
+        generator: {
+          filename: 'assets/fonts/[name][ext]',
+        },
       },
     ],
   },
@@ -88,8 +98,9 @@ module.exports = {
     extensions: ['.tsx', '.ts', '.js', '.png', 'scss', 'css'],
   },
   output: {
-    filename: '[name].[contenthash].bundle.js',
     path: path.resolve('./dist'),
+    filename: '[name].[contenthash].bundle.js',
+    assetModuleFilename: 'images/[hash][ext][query]',
     clean: true,
   },
 };
