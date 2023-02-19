@@ -56,9 +56,7 @@ nav {
 }
 
 main {
-  min-width: 350px;
-  width: 50%;
-  max-width: 750px;
+  width: min(750px, 100%, 100vw);
 }
 
 footer {
