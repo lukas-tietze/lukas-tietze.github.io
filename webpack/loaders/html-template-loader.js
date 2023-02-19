@@ -37,8 +37,6 @@ module.exports = async function (content, map, meta) {
   while ((match = regex.exec(content)) && (mode = match.groups['mode']) && (exp = match.groups['exp']?.trim())) {
     let replacedExpression = '';
 
-    console.log(mode, exp);
-
     if (mode === '>') {
       const data = await new Promise((resolve, reject) => {
         this.loadModule(path.resolve(`src/partials/${exp}.partial.html`), (err, src, _srcMap, _module) =>

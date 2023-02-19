@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 
 <html>
-  {{ head }}
+  {{> head }}
   <body class="bg-slate-100">
-    <header class="w-full bg-slate-500 z-10">{{ nav }}</header>
+    <header class="w-full bg-slate-500 z-10">{{> nav }}</header>
 
     <main class="flex-1 flex flex-col items-center">
       <article>
@@ -13,6 +13,6 @@
       </article>
     </main>
 
-    {{ footer }}
+    {{> footer }}
   </body>
 </html>

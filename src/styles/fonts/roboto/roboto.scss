@@ -1,0 +1,86 @@
+@use '../../config';
+
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: url(config.$rb-font-path + 'Roboto-Black.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Roboto';
+  font-style: italic;
+  font-weight: 400;
+  src: url(config.$rb-font-path + 'Roboto-BlackItalic.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: bold;
+  src: url(config.$rb-font-path + 'Roboto-Bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Roboto';
+  font-style: italic;
+  font-weight: bold;
+  src: url(config.$rb-font-path + 'Roboto-BoldItalic.ttf') format('truetype');
+}
+
+// TODO
+@font-face {
+  font-family: 'Roboto';
+  font-style: italic;
+  font-weight: normal;
+  src: url(config.$rb-font-path + 'Roboto-Italic.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: lighter;
+  src: url(config.$rb-font-path + 'Roboto-Light.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Roboto';
+  font-style: italic;
+  font-weight: lighter;
+  src: url(config.$rb-font-path + 'Roboto-LightItalic.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: bolder;
+  src: url(config.$rb-font-path + 'Roboto-Medium.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Roboto';
+  font-style: italic;
+  font-weight: bolder;
+  src: url(config.$rb-font-path + 'Roboto-MediumItalic.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: normal;
+  src: url(config.$rb-font-path + 'Roboto-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 100;
+  src: url(config.$rb-font-path + 'Roboto-Thin.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Roboto';
+  font-style: italic;
+  font-weight: 100;
+  src: url(config.$rb-font-path + 'Roboto-ThinItalic.ttf') format('truetype');
+}
